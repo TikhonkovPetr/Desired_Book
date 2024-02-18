@@ -1,6 +1,8 @@
 using Infrastruct;
 using ExtentionMyService;
 using System.Reflection;
+using AbstractDBModel;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMyService(Assembly.GetExecutingAssembly());
-
-//string connection = builder.Configuration.GetConnectionString("DefaultConnection");
-
+string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDBModel>(x => x.UseSqlServer(connection));
 
 
 var app = builder.Build();

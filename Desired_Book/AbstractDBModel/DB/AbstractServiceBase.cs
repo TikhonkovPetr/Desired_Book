@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using model;
 using System.Reflection;
 
 namespace AbstractDBModel
 {
-    public abstract class AppDBModel : DbContext
+    public class AppDBModel : DbContext
     {
-
+        public DbSet<DesiredBook> desiredBooks { get; set; } = default;
         public AppDBModel(DbContextOptions<AppDBModel> options) : base(options)
         {
 

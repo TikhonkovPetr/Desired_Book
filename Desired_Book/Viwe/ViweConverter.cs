@@ -9,7 +9,8 @@ namespace Viwe
             return new ViweDesiredBook
             {
                 Id = book.Id,
-                Name = book.Name
+                Name = book.Name,
+                Id_User = book.Id_User,
             };
         }
         static public DesiredBook ViweToModel(ViweDesiredBook? book) 
@@ -17,7 +18,8 @@ namespace Viwe
             return new DesiredBook
             {
                 Id = book.Id,
-                Name = book.Name
+                Name = book.Name,
+                Id_User = book.Id_User,
             };
             }
     }
